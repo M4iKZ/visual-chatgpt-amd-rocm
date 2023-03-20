@@ -47,10 +47,16 @@ git clone https://github.com/microsoft/visual-chatgpt.git
 cd visual-chatgpt
 
 # create a new environment
-conda create -n visgpt python=3.8
+python -m venv visgpt
 
-# activate the new environment
-conda activate visgpt
+# activate the new environment (on Linux)
+source bin/bin/activate
+
+# AMD ROCm (compatible only with Linux)
+pip install --pre torch torchvision --index-url https://download.pytorch.org/whl/nightly/rocm5.3
+
+# Other Platforms
+pip install torch==1.12.1 torchvision==0.13.1
 
 #  prepare the basic environments
 pip install -r requirements.txt
